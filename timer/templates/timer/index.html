@@ -1,0 +1,80 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<title>ironbunmasterplan.com</title>
+<style type="text/css">
+
+html {
+	min-height: 100%;
+	background-color: #00a0f0;
+	background: rgb(0,160,240);
+	background: linear-gradient(180deg, rgba(0,160,240,1) 20%, rgba(196,225,240,1) 80%);
+}
+.clock {
+  zoom: 2.5;  
+  -ms-transform: scale(2.5);
+  -moz-transform: scale(2.5);
+  -webkit-transform: scale(2.5);
+  transform: scale(2.5); 
+}
+
+body {
+  padding: 100px;
+  text-align: center;
+  max-width:1200px;
+}
+
+.clock {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-30%) translateY(90%);
+}
+
+#msg {
+  position: absolute;
+  top: 60%;
+  left: 15%;
+  font-family:Impact, Charcoal, sans-serif;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+</style>
+
+<head>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.css">
+
+</head>
+
+<body>
+
+	<div id = "clock" class="clock"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.js"></script>
+	<script type="text/javascript">var clock;
+// Instantiate a coutdown FlipClock 172800 = 48hrs
+clock = $('.clock').FlipClock(1800, {
+	clockFace: 'HourlyCounter',
+	countdown: true,
+	showSeconds: true,
+	callbacks: {
+		start: function() {
+			$('.message').html('The clock has started!');
+		},
+		stop: function() {
+			$('.message').html('The clock has stopped!');
+		}
+	}
+});</script>
+
+</body>
+
+<footer><img id = "image" src="http://logok.org/wp-content/uploads/2014/12/Thyssenkrupp-Logo-2015-logotype.png" alt="thyssenkrupp" width="168" height="126">
+<input type="button" id="clockb" value="Pause Clock"/>
+</footer>
+</html>
